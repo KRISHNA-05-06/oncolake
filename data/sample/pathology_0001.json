@@ -1,0 +1,4 @@
+[
+  {"report_id":"PA001","patient_id":"P001","specimen":"left lung biopsy","diagnosis":"adenocarcinoma","grade":"moderately differentiated","collected_at":"2026-01-04"},
+  {"report_id":"PA002","patient_id":"P002","specimen":"breast core biopsy","diagnosis":"invasive ductal carcinoma","grade":"grade 2","collected_at":"2026-01-07"}
+]

@@ -1,0 +1,27 @@
+-- 01_warehouses.sql
+-- Two warehouses so you can say you separate load cost from query cost.
+-- AUTO_SUSPEND keeps the trial credits from draining while you are idle.
+
+USE ROLE ACCOUNTADMIN;
+
+CREATE WAREHOUSE IF NOT EXISTS ONCOLAKE_LOAD_WH
+  WAREHOUSE_SIZE = 'XSMALL'
+  AUTO_SUSPEND = 60          -- seconds
+  AUTO_RESUME = TRUE
+  INITIALLY_SUSPENDED = TRUE
+  COMMENT = 'Ingestion / COPY / Snowpipe / Matillion loads';
+
+CREATE WAREHOUSE IF NOT EXISTS ONCOLAKE_QUERY_WH
+  WAREHOUSE_SIZE = 'XSMALL'
+  AUTO_SUSPEND = 60
+  AUTO_RESUME = TRUE
+  INITIALLY_SUSPENDED = TRUE
+  COMMENT = 'Analytics, Streamlit, Cortex, ad-hoc queries';
+
+GRANT USAGE ON WAREHOUSE ONCOLAKE_LOAD_WH  TO ROLE ONCOLAKE_ENG;
+GRANT USAGE ON WAREHOUSE ONCOLAKE_QUERY_WH TO ROLE ONCOLAKE_ENG;
+
+-- From here on:
+--   USE ROLE ONCOLAKE_ENG;
+--   USE WAREHOUSE ONCOLAKE_QUERY_WH;
+--   USE DATABASE ONCOLAKE;

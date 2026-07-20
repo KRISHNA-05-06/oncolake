@@ -1,0 +1,6 @@
+note_id,patient_id,note_date,note_text
+N001,P001,2026-01-05,"Patient with adenocarcinoma of the left lung, clinical stage IIIA, T2N2M0. Started on carboplatin and pemetrexed. ECOG 1. EGFR exon 19 deletion positive."
+N002,P002,2026-01-08,"Invasive ductal carcinoma of the breast, stage IIB, T2N1M0. ER positive, PR positive, HER2 3+. Plan: trastuzumab based regimen."
+N003,P003,2026-01-11,"Prostate adenocarcinoma, Gleason 7, clinical stage II. PSA 8.4. Active surveillance discussed."
+N004,P004,2026-01-14,"Colon adenocarcinoma, stage IV with hepatic metastases, T4N2M1. KRAS mutant. FOLFOX initiated. ECOG 2."
+N005,P001,2026-03-02,"Follow up: left lung adenocarcinoma restaged to stage IV after new adrenal lesion. Continues systemic therapy."

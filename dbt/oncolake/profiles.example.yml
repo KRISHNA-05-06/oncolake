@@ -1,0 +1,13 @@
+oncolake:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "<your_account_locator>"     # e.g. ab12345.us-east-1
+      user: "<your_user>"
+      password: "<your_password>"           # or use key-pair / SSO
+      role: ONCOLAKE_ENG
+      warehouse: ONCOLAKE_QUERY_WH
+      database: ONCOLAKE
+      schema: PUBLIC                          # overridden per-folder by +schema
+      threads: 4

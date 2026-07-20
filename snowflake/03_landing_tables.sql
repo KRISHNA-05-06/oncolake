@@ -1,0 +1,4 @@
+-- 03_landing_tables.sql
+-- Landing tables live next to the stages that feed them: see
+-- 02_stages_fileformats.sql (RAW_CLINICAL_NOTES) and 04_snowpipe.sql
+-- (RAW_LAB_RESULTS). This file is a placeholder in the repo tree.

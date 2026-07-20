@@ -1,0 +1,10 @@
+{
+  "note": "Reference only. In practice you set this in the S3 console or via CLI.",
+  "QueueConfigurations": [
+    {
+      "QueueArn": "<PASTE notification_channel FROM SHOW PIPES>",
+      "Events": ["s3:ObjectCreated:*"],
+      "Filter": {"Key": {"FilterRules": [{"Name": "prefix", "Value": "lab_results/"}]}}
+    }
+  ]
+}

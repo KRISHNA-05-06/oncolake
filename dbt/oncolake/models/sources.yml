@@ -1,0 +1,17 @@
+version: 2
+sources:
+  - name: raw
+    database: ONCOLAKE
+    schema: RAW
+    tables:
+      - name: RAW_CLINICAL_NOTES
+      - name: RAW_LAB_RESULTS
+      - name: RAW_PATHOLOGY_JSON
+  - name: staging
+    database: ONCOLAKE
+    schema: STAGING
+    tables:
+      - name: CORTEX_EXTRACTIONS
+      - name: GOLD_LABELS
+      - name: STG_PATHOLOGY
+      - name: LAB_RESULTS      # created by 05_streams_tasks.sql (Phase 5)

@@ -1,0 +1,1 @@
+# boto3 is preinstalled in the Lambda runtime; no extra deps needed.

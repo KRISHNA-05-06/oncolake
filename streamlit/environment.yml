@@ -1,0 +1,6 @@
+name: sf_env
+channels: [snowflake]
+dependencies:
+  - streamlit
+  - pandas
+  - snowflake-snowpark-python

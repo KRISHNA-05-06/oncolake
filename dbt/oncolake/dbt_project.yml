@@ -1,0 +1,22 @@
+name: 'oncolake'
+version: '1.0.0'
+profile: 'oncolake'
+config-version: 2
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+models:
+  oncolake:
+    staging:
+      +schema: STAGING
+      +materialized: view
+    marts:
+      +schema: MARTS
+      +materialized: table
+
+seeds:
+  oncolake:
+    +schema: RAW

@@ -1,0 +1,6 @@
+note_id,primary_site,ajcc_stage,tnm_stage
+N001,left lung,IIIA,T2N2M0
+N002,breast,IIB,T2N1M0
+N003,prostate,II,
+N004,colon,IV,T4N2M1
+N005,left lung,IV,
