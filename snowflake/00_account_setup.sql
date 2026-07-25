@@ -1,7 +1,4 @@
 -- 00_account_setup.sql
--- Run once as ACCOUNTADMIN right after creating the Snowflake trial.
--- Creates the database, schema, and a project role so you are not
--- doing everything as ACCOUNTADMIN (a real interview talking point).
 
 USE ROLE ACCOUNTADMIN;
 
