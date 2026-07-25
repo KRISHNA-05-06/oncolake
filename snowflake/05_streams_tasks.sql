@@ -1,6 +1,4 @@
 -- 05_streams_tasks.sql
--- Native incremental loading: a Stream captures new rows, a Task merges
--- them on a schedule. This is the pattern interviewers ask about.
 
 USE ROLE ONCOLAKE_ENG;
 USE WAREHOUSE ONCOLAKE_LOAD_WH;
