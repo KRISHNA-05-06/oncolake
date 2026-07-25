@@ -71,12 +71,3 @@ Read the mapping above against the Moffitt Data Engineer I posting:
 - "delivers accessible data to power research needs" -> the cohort explorer
 - "in accordance with HIPAA and other patient data management policies" ->
   de-identify + data-quality gate
-
-## The honest boundary (say this exactly)
-
-"Same architecture and engineering principles as Moffitt's published clinical
-data platform, applied to synthetic data. Different data type (clinical notes
-with Cortex, not genomic sequencing), same engineering shape."
-
-Never claim to have rebuilt their system. The most likely eventual reader of
-this repo is a co-author of that paper.
