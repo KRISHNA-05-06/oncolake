@@ -1,9 +1,5 @@
 -- 02b_json_source.sql
 -- Third source type: a semi-structured JSON pathology report. The Moffitt JD
--- explicitly lists "semi-structured file formats (XML, JSON)" as an ingestion
--- requirement, so landing one JSON source proves you handle more than CSV.
--- This mirrors the many heterogeneous "Clinical data sources" hexagons in the
--- Moffitt architecture (Figure 1): different formats, one governed warehouse.
 
 USE ROLE ONCOLAKE_ENG;
 USE WAREHOUSE ONCOLAKE_LOAD_WH;
