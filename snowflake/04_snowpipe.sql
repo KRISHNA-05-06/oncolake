@@ -7,7 +7,7 @@ USE ROLE ACCOUNTADMIN;
 -- 1. Storage integration. STORAGE_AWS_ROLE_ARN is an IAM role you create in
 --    AWS that trusts Snowflake. After creating this, run DESC INTEGRATION and
 --    copy STORAGE_AWS_IAM_USER_ARN + STORAGE_AWS_EXTERNAL_ID back into that
---    role's trust policy (Snowflake docs call this the "handshake").
+--    role's trust policy.
 CREATE OR REPLACE STORAGE INTEGRATION ONCOLAKE_S3_INT
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = 'S3'
