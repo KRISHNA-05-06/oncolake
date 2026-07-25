@@ -1,6 +1,5 @@
 -- 01_warehouses.sql
--- Two warehouses so you can say you separate load cost from query cost.
--- AUTO_SUSPEND keeps the trial credits from draining while you are idle.
+
 
 USE ROLE ACCOUNTADMIN;
 
@@ -21,7 +20,3 @@ CREATE WAREHOUSE IF NOT EXISTS ONCOLAKE_QUERY_WH
 GRANT USAGE ON WAREHOUSE ONCOLAKE_LOAD_WH  TO ROLE ONCOLAKE_ENG;
 GRANT USAGE ON WAREHOUSE ONCOLAKE_QUERY_WH TO ROLE ONCOLAKE_ENG;
 
--- From here on:
---   USE ROLE ONCOLAKE_ENG;
---   USE WAREHOUSE ONCOLAKE_QUERY_WH;
---   USE DATABASE ONCOLAKE;
