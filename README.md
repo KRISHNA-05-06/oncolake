@@ -16,11 +16,6 @@ Cancer centers document visits, pathology reports, and tumor board discussions a
 
 ## Architecture
 
-![OncoLake architecture: three heterogeneous sources land in RAW via Matillion/COPY, Snowpipe auto-ingest, and COPY into VARIANT; dbt + LLM builds STAGING; dbt marts builds MARTS; the Streamlit cohort explorer reads the mart](docs/architecture.png)
-
-<details>
-<summary>Diagram source (Mermaid)</summary>
-
 ```mermaid
 flowchart LR
     subgraph SRC["Heterogeneous sources"]
@@ -50,8 +45,6 @@ flowchart LR
     S -->|dbt marts| M
     M --> EXP
 ```
-
-</details>
 
 **Layer mapping:** `RAW` (as-ingested sources) → `STAGING` (cleaned, governed — the HRI-warehouse analog) → `MARTS` (the cohort data mart) → the Streamlit explorer (the cBioPortal analog). Built entirely on synthetic data in a Snowflake AWS `us-east-2` account.
 
