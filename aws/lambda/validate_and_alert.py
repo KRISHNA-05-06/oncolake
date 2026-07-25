@@ -33,9 +33,6 @@ def alert(message):
 
 
 def handler(event, context):
-    # Example of reading a credential the right way (used by downstream jobs).
-    # creds = get_secret(SECRET_NAME)  # -> {"user": ..., "password": ...}
-
     for record in event.get("Records", []):
         key = record["s3"]["object"]["key"]
         fname = key.split("/")[-1]
