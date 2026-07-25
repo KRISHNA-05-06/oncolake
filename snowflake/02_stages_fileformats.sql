@@ -1,5 +1,4 @@
 -- 02_stages_fileformats.sql
--- Learn the loading mechanics manually BEFORE you automate with Snowpipe.
 
 USE ROLE ONCOLAKE_ENG;
 USE WAREHOUSE ONCOLAKE_LOAD_WH;
