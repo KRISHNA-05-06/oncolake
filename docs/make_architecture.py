@@ -1,19 +1,4 @@
-"""Render the OncoLake architecture diagram to a static PNG.
 
-Top-to-bottom flow so the image is portrait-ish: width is the binding constraint
-in a GitHub README (~880px), so a tall diagram renders its text larger than the
-equivalent wide one. Colours: the three warehouse schemas are an ordered
-sequence, so they take one blue ordinal ramp (validated: monotone L, visible
-step gaps, light end clears the surface) rather than cycled categorical hues.
-Sources take a neutral, the terminal app takes aqua. Every box carries a visible
-dark-ink label on a white card, so hue never carries meaning alone.
-
-Regenerating (matplotlib is a authoring-time dependency only, deliberately kept
-out of requirements.txt so CI does not install it):
-
-    pip install matplotlib
-    python docs/make_architecture.py
-"""
 from pathlib import Path
 
 import matplotlib
@@ -75,7 +60,6 @@ def card(x, y, w, h, accent, header, title, subtitle=None, bullets=None,
                                edgecolor="none"))
         cy += 18
     elif rule_only:
-        # Sources carry the accent as a bare rule — no layer name to print.
         ax.add_patch(Rectangle((x + pad, cy + 1), 34, 3.2, facecolor=accent,
                                edgecolor="none"))
         cy += 20
