@@ -1,4 +1,8 @@
+"""Renders docs/architecture.png, the layer diagram used in the README.
 
+Run after changing the pipeline shape so the diagram and the code agree:
+    python docs/make_architecture.py
+"""
 from pathlib import Path
 
 import matplotlib

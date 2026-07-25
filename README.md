@@ -158,9 +158,7 @@ The pipeline runs on synthetic data. High level:
 4. **Extract** — `python src/extract_to_snowflake.py` reads the notes and writes structured fields to `STAGING.CORTEX_EXTRACTIONS` (set `ANTHROPIC_API_KEY` + Snowflake env vars). The Cortex-native version is in `snowflake/06_cortex_extract.sql` for paid accounts.
 5. **Model** — `cd dbt/oncolake && dbt seed && dbt run && dbt snapshot && dbt test`.
 6. **Serve** — create a Streamlit-in-Snowflake app from `streamlit/oncolake_app.py` (database ONCOLAKE, schema MARTS, warehouse ONCOLAKE_QUERY_WH).
-7. **Event pipeline / Matillion** — see `snowflake/04_snowpipe.sql`, `aws/`, and the Matillion notes.
-
-See [`BUILD_HANDBOOK.md`](BUILD_HANDBOOK.md) for the full step-by-step build.
+7. **Event pipeline / Matillion** — see `snowflake/04_snowpipe.sql` and `aws/`.
 
 ---
 
@@ -169,19 +167,19 @@ See [`BUILD_HANDBOOK.md`](BUILD_HANDBOOK.md) for the full step-by-step build.
 ```
 oncolake/
 ├── README.md
-├── BUILD_HANDBOOK.md              step-by-step build
 ├── docs/
 │   ├── moffitt_alignment.md       architecture parallel + JD mapping
+│   ├── make_architecture.py       generates the architecture diagram
 │   └── screenshots/               evidence screenshots
 ├── data/sample/                   synthetic source data (notes, labs, pathology JSON, gold labels)
-├── src/                           generate, deidentify, extract, data_quality, evaluate, load
+├── src/extract_to_snowflake.py    Claude API extraction into STAGING.CORTEX_EXTRACTIONS
 ├── snowflake/                     setup SQL, Snowpipe, Streams & Tasks, Cortex, tuning
 │   └── tuning/before_after.md     query-profiling findings
 ├── aws/                           Lambda validator, Snowpipe/SNS/SQS + Secrets Manager setup
-├── matillion/                     exported orchestration + transformation jobs
 ├── streamlit/                     cohort explorer app
 ├── dbt/oncolake/                  staging, marts, SCD2 snapshot, seeds, tests
 ├── airflow/dags/                  end-to-end DAG
+├── tests/                         pytest smoke tests
 └── .github/workflows/ci.yml       pytest CI
 ```
 

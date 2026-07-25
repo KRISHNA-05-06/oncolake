@@ -1,22 +1,38 @@
-"""oncolake_dag.py -- end-to-end orchestration."""
+"""End-to-end orchestration for the OncoLake pipeline.
+
+Two tasks: pull the clinical notes out of RAW and write structured fields to
+STAGING.CORTEX_EXTRACTIONS, then let dbt build the marts on top of that table.
+Ingestion into RAW is not a task here because it happens outside Airflow, either
+event-driven through Snowpipe or on Matillion's own schedule.
+
+Scheduled manually rather than on a cron: the extract task calls the Claude API
+once per note, so an unattended nightly run would spend money re-extracting a
+table that only changes when new notes land.
+"""
 
 from datetime import datetime
+
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
 with DAG(
     dag_id="oncolake_pipeline",
     start_date=datetime(2026, 1, 1),
-    schedule=None,          # trigger manually while building
+    schedule=None,
     catchup=False,
     tags=["oncolake", "moffitt"],
 ) as dag:
 
-    generate   = BashOperator(task_id="generate",   bash_command="python -m src.generate_synthetic_notes")
-    deidentify = BashOperator(task_id="deidentify", bash_command="python -m src.deidentify")
-    extract    = BashOperator(task_id="extract",     bash_command="python -m src.extract_llm && python -m src.extract_baseline")
-    quality    = BashOperator(task_id="quality",     bash_command="python -m src.data_quality")
-    load       = BashOperator(task_id="load",        bash_command="python -m src.load_snowflake")
-    dbt_build  = BashOperator(task_id="dbt_build",   bash_command="cd dbt/oncolake && dbt seed && dbt run && dbt snapshot && dbt test")
+    extract = BashOperator(
+        task_id="extract",
+        bash_command="python src/extract_to_snowflake.py",
+    )
 
-    generate >> deidentify >> extract >> quality >> load >> dbt_build
+    dbt_build = BashOperator(
+        task_id="dbt_build",
+        bash_command=(
+            "cd dbt/oncolake && dbt seed && dbt run && dbt snapshot && dbt test"
+        ),
+    )
+
+    extract >> dbt_build

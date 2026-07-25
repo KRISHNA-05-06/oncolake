@@ -6,3 +6,5 @@ logs/
 dbt/oncolake/target/
 dbt/oncolake/dbt_packages/
 *.pyc
+.pytest_cache/
+.DS_Store
