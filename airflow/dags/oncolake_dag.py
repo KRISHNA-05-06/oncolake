@@ -1,9 +1,5 @@
-"""oncolake_dag.py -- end-to-end orchestration.
+"""oncolake_dag.py -- end-to-end orchestration."""
 
-Mirrors your existing oncology DAG, extended for OncoLake. Each task shells
-out to a pipeline stage; swap BashOperator for SnowflakeOperator / dbt tasks
-as you wire real credentials. Kept intentionally simple so it reads clearly.
-"""
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
