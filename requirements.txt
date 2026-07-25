@@ -1,0 +1,20 @@
+# Root requirements: only what CI needs to import and test the Python in this repo.
+#
+# Covered by tests/:
+#   anthropic, snowflake-connector-python -> src/extract_to_snowflake.py
+#   boto3                                 -> aws/lambda/validate_and_alert.py
+#
+# Deliberately NOT here:
+#   apache-airflow -> airflow/dags/oncolake_dag.py is a DAG definition; importing
+#                     it needs an initialised Airflow metadata DB, and the package
+#                     is a very large install for no test value.
+#   streamlit      -> streamlit/oncolake_app.py opens a live Snowflake connection
+#                     at module scope, so it cannot be imported in CI.
+#   Both have their own dependency manifests (streamlit/pyproject.toml,
+#   streamlit/environment.yml).
+
+anthropic>=0.40.0
+boto3>=1.34.0
+snowflake-connector-python>=3.12.0
+
+pytest>=8.0.0
