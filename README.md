@@ -1,6 +1,3 @@
-![CI](https://github.com/KRISHNA-05-06/oncolake/actions/workflows/ci.yml/badge.svg)
-
-
 # OncoLake — Snowflake Clinical Research Data Platform
 
 A HIPAA-aware, Snowflake-native data platform built on **fully synthetic** oncology data. It ingests clinical data through multiple paths (Matillion ELT, Snowpipe auto-ingest, and semi-structured JSON), extracts structured fields from free-text clinical notes with an LLM, models the result into governed dimensional marts with dbt (including an SCD Type 2 patient dimension), and surfaces cohort metrics in a Streamlit-in-Snowflake app.
