@@ -1,3 +1,5 @@
+![CI](https://github.com/KRISHNA-05-06/oncolake/actions/workflows/ci.yml/badge.svg)
+
 # Prepend the CI badge to README.md
 $badge = "![CI](https://github.com/KRISHNA-05-06/oncolake/actions/workflows/ci.yml/badge.svg)`n`n"
 $content = Get-Content README.md -Raw
